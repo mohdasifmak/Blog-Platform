@@ -1,0 +1,30 @@
+<%- layout('boilerplate') -%>
+
+<div class="container min-vh-100">
+    <h2 class="my-4">Blog Posts</h2>
+    <a href="/blogs/new" class="btn btn-success mb-4">Add New Blog</a>
+
+    <div class="row">
+        <% blogs.forEach((blog) => { %>
+        <!-- Make each blog card take up the full width of the row -->
+        <div class="col-12 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Blog Title -->
+                    <h5 class="card-title"><%= blog.title %></h5>
+
+                    <!-- Short Blog Content -->
+                    <p class="card-text"><%= blog.content.substring(0, 100) %>...</p>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex">
+                        <a href="/blogs/detail/<%= blog.id %>" class="btn btn-primary mr-2">See in Detail</a>
+                        <a href="/blogs/edit/<%= blog.id %>" class="btn btn-warning mr-2">Edit</a>
+                        <a href="/blogs/delete/<%= blog.id %>" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>

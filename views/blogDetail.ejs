@@ -1,0 +1,14 @@
+<% layout('boilerplate') -%>
+
+<div class="container mt-5 min-vh-100">
+    <!-- Back Button -->
+    <a href="/blogs" class="btn btn-secondary mb-3">← Back to Blogs</a>
+
+    <h1 class="display-4"><%= blog.title %></h1>
+    
+    <p class="text-muted">Published on <%= new Date(blog.publish_date).toLocaleDateString() %></p>
+
+    <div class="lead">
+        <%= blog.content %>
+    </div>
+</div>    

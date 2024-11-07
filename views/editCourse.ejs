@@ -1,0 +1,25 @@
+<% layout('boilerplate') -%>
+
+<div class="container mt-5">
+    <h2>Edit Course</h2>
+    <form action="/courses/edit/<%= course.id %>" method="POST">
+        <div class="form-group">
+            <label for="title">Course Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= course.title %>" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Course Description</label>
+            <textarea class="form-control" id="description" name="description" rows="5" required><%= course.description %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="price">Course Price (INR)</label>
+            <input type="number" step="0.01" class="form-control" id="price" name="price" value="<%= course.price %>" required>
+        </div>
+        <div class="form-group">
+            <label for="image_url">Image URL</label>
+            <input type="url" class="form-control" id="image_url" name="image_url" value="<%= course.image_url %>">
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Update Course</button>
+    </form>
+</div>
+

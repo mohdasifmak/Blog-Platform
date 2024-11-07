@@ -1,0 +1,27 @@
+<% layout('boilerplate') -%>
+
+<h2>Courses</h2>
+
+<div class="row mb-4">
+    <% courses.forEach((course) => { %>
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm">
+            <img src="<%= course.image_url %>" class="card-img-top" alt="Course Image" style="max-height: 200px; object-fit: cover;">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title font-weight-bold"><%= course.title %></h5>
+                <p class="card-text text-muted">Price: ₹<%= course.price%></p>
+                <p class="card-text"><%= course.description.substring(0, 100) %>...</p>
+                <div class="mt-auto">
+                    <a href="/courses/edit/<%= course.id %>" class="btn btn-sm btn-warning mr-2">Edit</a>
+                    <a href="/courses/delete/<%= course.id %>" class="btn btn-sm btn-danger mr-2">Delete</a>
+                    <a href="/courses/pay/<%= course.id %>" class="btn btn-sm btn-success">Buy</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }) %> 
+</div>
+
+<a href="/courses/new" class="btn btn-success mb-3">Add New Course (Only For Admin)</a>
+
+
